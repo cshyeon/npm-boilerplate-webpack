@@ -21,6 +21,11 @@ module.exports = (env) => ({
               '@babel/preset-env'
             ],
           ],
+          plugins: [
+            [
+              require('@babel/plugin-transform-runtime')
+            ]
+          ]
         },
       }
     ]

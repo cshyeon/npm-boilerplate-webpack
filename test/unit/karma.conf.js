@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Karma configuration
 // Generated on Tue Sep 11 2018 11:42:44 GMT+0900 (대한민국 표준시)
 const webpackConfig = require('../../webpack.test.config')();
@@ -14,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      '../../node_modules/@babel/polyfill/dist/polyfill.js',  // for browser polyfill(promise, acts...)
       './index.js'
     ],
 
