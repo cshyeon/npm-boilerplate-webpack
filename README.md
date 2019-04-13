@@ -4,10 +4,11 @@
 ## Setup
 - Edit package.json
 ```json
-"name": "your package name"
+"name": "your package name",
+"start": "nodemon dist/<your package name>.js",
 ```
 
-- Edit webpack.config.js
+- Edit webpack.*.config.js
 ```javascript
 const libraryName = 'your libaray name';
 ```
