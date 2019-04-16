@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "npm boilerplate with webpack and karma",
   "main": "./dist/bundle.js",
+  "browser": {
+    "./lib/test.js": "./lib/test.browser.js",
+    "./dist/bundle.js": "./dist/bundle.browser.js"
+  },
   "scripts": {
     "install": "npm run build",
     "start": "nodemon dist/bundle.js",
