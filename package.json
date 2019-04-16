@@ -13,7 +13,8 @@
     "dev": "webpack --config ./webpack.node.config.js --watch",
     "dev:front": "webpack-dev-server --config ./webpack.web.config.js",
     "build": "webpack --config webpack.prod.config.js --mode production",
-    "test": "karma start ./test/unit/karma.conf.js"
+    "test": "karma start ./test/unit/karma.conf.js",
+    "test:node": "karma start ./test/unit/karma.conf.js --target=node"
   },
   "keywords": [
     "npm package",

@@ -1,9 +1,11 @@
 /* eslint-disable */
 // Karma configuration
 // Generated on Tue Sep 11 2018 11:42:44 GMT+0900 (대한민국 표준시)
-const webpackConfig = require('../../webpack.test.config')();
 
 module.exports = function(config) {
+  const target = config.target;
+  const webpackConfig = require('../../webpack.test.config')(undefined, {target});
+
   config.set({
     webpack: webpackConfig,
     // base path that will be used to resolve all patterns (eg. files, exclude)
