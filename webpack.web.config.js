@@ -1,24 +1,21 @@
 /* eslint-disable */
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const libraryName = 'bundle';
 const outputFileName = `${libraryName}`;
 
-const nodeConfig = (env, argv) => {
+const browserConfig = (env, argv) => {
   const isProduction = argv && argv.mode && argv.mode === 'production';
-  
+
   return {
     mode: isProduction ? 'production' : 'development',
-    target: 'node',
-    node: {
-      __dirname: false,
-    },
+    target: 'web',
     entry: path.resolve(__dirname, 'index.js'),
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: outputFileName + '.js',
+      filename: outputFileName + '.browser.js',
       library: libraryName,
       libraryTarget: 'umd',
       umdNamedDefine: true,
@@ -32,7 +29,6 @@ const nodeConfig = (env, argv) => {
       }
     },
     devtool: 'inline-source-map',
-    externals: [nodeExternals()],
     module: {
       rules: [
         {
@@ -55,9 +51,14 @@ const nodeConfig = (env, argv) => {
       ]
     },
     plugins: isProduction ? [] : [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'index.html',
+        inject: true
+      })
     ]
   }
 };
-
-module.exports = nodeConfig;
+ 
+module.exports = browserConfig;
