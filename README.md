@@ -5,7 +5,6 @@
 - Edit package.json
 ```json
 "name": "your package name",
-"main": "./dist/<your package name>.js",
 "start": "nodemon dist/<your package name>.js",
 ```
 

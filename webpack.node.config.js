@@ -19,6 +19,9 @@ const nodeConfig = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: outputFileName + '.js',
+      library: libraryName,
+      libraryExport: 'default',
+      libraryTarget: "umd",
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json'
     },
@@ -28,7 +31,7 @@ const nodeConfig = (env, argv) => {
       }
     },
     devtool: 'inline-source-map',
-    externals: [nodeExternals()],
+    // externals: [nodeExternals()],
     module: {
       rules: [
         {
