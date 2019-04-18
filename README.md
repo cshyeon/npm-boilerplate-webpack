@@ -5,12 +5,22 @@
 - Edit package.json
 ```json
 "name": "your package name",
+"main": "./dist/<your package name>.js",
 "start": "nodemon dist/<your package name>.js",
 ```
 
 - Edit webpack.*.config.js
 ```javascript
 const libraryName = 'your libaray name';
+```
+
+- Edit nodemon.json
+```json
+{
+  "watch": [
+    "dist/<your package name>.js"
+  ]
+}
 ```
 
 ## Development
