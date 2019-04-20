@@ -8,7 +8,7 @@
 "start": "nodemon dist/<your package name>.js",
 ```
 
-- Edit webpack.*.config.js
+- Edit `./webpack.node.config.js`, `./webpack.web.config.js`
 ```javascript
 const libraryName = 'your libaray name';
 ```
